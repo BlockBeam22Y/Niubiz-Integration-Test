@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
 import NiubizForm from '../components/NiubizForm';
 import PaymentModal from '../components/PaymentModal';
-import { CustomerContext, CartContext } from '../App';
+import { CustomerCtx, CartCtx } from '../App';
 import CheckoutForm from '../components/CheckoutForm';
 import LoginForm from '../components/LoginForm';
 
@@ -12,8 +12,8 @@ function Checkout({ setCustomer, loadCart }) {
     const [searchParams, setSearchParams] = useSearchParams();
     const [modal, setModal] = useState(null);
     
-    const customer = useContext(CustomerContext);
-    const cart = useContext(CartContext);
+    const customer = useContext(CustomerCtx());
+    const cart = useContext(CartCtx());
 
     const navigate = useNavigate();
 

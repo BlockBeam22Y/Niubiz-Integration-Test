@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { CartContext, CustomerContext } from '../App';
+import { CartCtx, CustomerCtx } from '../App';
 
 import DuplicateModal from '../components/DuplicateModal';
 
@@ -7,8 +7,8 @@ function LoginForm({ setCustomer, setModal, loadCart }) {
     const [nDni, setNDni] = useState('');
     const [password, setPassword] = useState('');
     
-    const customer = useContext(CustomerContext);
-    const cart = useContext(CartContext);
+    const customer = useContext(CustomerCtx());
+    const cart = useContext(CartCtx());
     
     const handleLinkCart = (customer) => {
         fetch(`${import.meta.env.VITE_API_URL}/api/v1/cart/${cart.id}/customer`, {

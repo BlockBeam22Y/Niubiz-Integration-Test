@@ -3,7 +3,7 @@ import ArticleCard from '../components/ArticleCard';
 import CartItem from '../components/CartItem';
 import { useNavigate } from 'react-router';
 import LoginForm from '../components/LoginForm';
-import { CartContext, CustomerContext } from '../App';
+import { CartCtx, CustomerCtx } from '../App';
 
 function Articles({ setCustomer, loadCart }) {
     const [articles, setArticles] = useState([]);
@@ -11,8 +11,8 @@ function Articles({ setCustomer, loadCart }) {
 
     const navigate = useNavigate();
 
-    const customer = useContext(CustomerContext);
-    const cart = useContext(CartContext);
+    const customer = useContext(CustomerCtx());
+    const cart = useContext((CartCtx));
 
     useEffect(() => {
         fetch(`${import.meta.env.VITE_API_URL}/api/v1/articles`)

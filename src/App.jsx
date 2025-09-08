@@ -3,9 +3,13 @@ import './App.css'
 import Articles from './pages/Articles'
 import Checkout from './pages/Checkout'
 import { createContext, useState } from 'react'
+import Success from './pages/Success'
+import Failure from './pages/Failure'
 
-export const CustomerContext = createContext(null);
-export const CartContext = createContext(null);
+const CustomerContext = createContext(null);
+export const CustomerCtx = () => CustomerContext;
+const CartContext = createContext(null);
+export const CartCtx = () => CartContext;
 
 function App() {
   const [customer, setCustomer] = useState(null);
@@ -28,6 +32,8 @@ function App() {
             <Route path='/' element={
               <Articles setCustomer={setCustomer} loadCart={loadCart} />
             } />
+            <Route path='/checkout/success' element={<Success/>}/>
+            <Route path='/checkout/failure' element={<Failure/>}/>
             <Route path='/checkout' element={
               <Checkout setCustomer={setCustomer} loadCart={loadCart} />
             } />

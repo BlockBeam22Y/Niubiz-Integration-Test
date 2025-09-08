@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { CartContext, CustomerContext } from '../App';
+import { CartCtx, CustomerCtx } from '../App';
 
 function CheckoutForm({ sessionToken, handleSessionToken }) {
     const [formData, setFormData] = useState({
@@ -9,8 +9,8 @@ function CheckoutForm({ sessionToken, handleSessionToken }) {
         phone: '',
     });
 
-    const cart = useContext(CartContext);
-    const customer = useContext(CustomerContext);
+    const cart = useContext(CartCtx());
+    const customer = useContext(CustomerCtx());
 
     useEffect(() => {
         if (!customer) return;
